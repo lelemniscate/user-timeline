@@ -3,6 +3,8 @@ import { DateTime } from 'luxon';
 
 import { avatarSize, color4, hourNumberHeight, hourSize } from '../styles/constants';
 import Avatar from './Avatar';
+import { useSelector } from 'react-redux';
+import { selectPeople } from '../features/people/peopleSlice';
 
 const hours = Array.from(Array(25).keys());
 const showHours = [0, 12, 24];
@@ -84,14 +86,17 @@ const TimeTable = styled.div`
   grid-template-rows: ${({ size }) => `${hourNumberHeight}px repeat(${size}, ${lineHeight}px)`};
 `;
 
-const Timeline = ({ people }) => (
-  <TimelineContainer>
-    <LineBackground />
-    <TimeTable className="time-table" size={people.length}>
-      <HoursBar />
-      {people.map((person) => (<Line model={person} />))}
-    </TimeTable>
-  </TimelineContainer>
-);
+const Timeline = () => {
+  const people = useSelector(selectPeople);
+  return (
+    <TimelineContainer>
+      <LineBackground />
+      <TimeTable className="time-table" size={people.length}>
+        <HoursBar />
+        {people.map((person) => (<Line model={person} />))}
+      </TimeTable>
+    </TimelineContainer>
+  );
+};
 
 export default Timeline;

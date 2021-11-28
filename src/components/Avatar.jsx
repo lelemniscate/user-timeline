@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import People from '../models/People';
 import { avatarSize, color1 } from '../styles/constants';
 
 const StyledAvatar = styled.div`
@@ -17,14 +18,17 @@ const StyledAvatar = styled.div`
   overflow: hidden;
 `;
 
-const Avatar = ({ model }) => (
-  <StyledAvatar>
-    {
-      (model.avatar === undefined)
-        ? (<span>{model.initials}</span>)
-        : (<img src={model.avatar} alt={`${model.name}'s avatar`} width={`${avatarSize}px`} />)
-    }
-  </StyledAvatar>
-);
+const Avatar = ({ model }) => {
+  const person = new People(model);
+  return (
+    <StyledAvatar>
+      {
+        (person.avatar === undefined)
+          ? (<span>{person.initials}</span>)
+          : (<img src={person.avatar} alt={`${person.name}'s avatar`} width={`${avatarSize}px`} />)
+      }
+    </StyledAvatar>
+  );
+};
 
 export default Avatar;

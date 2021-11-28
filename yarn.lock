@@ -10589,6 +10589,10 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+tzdata@^1.0.29:
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/tzdata/-/tzdata-1.0.29.tgz#077c8074582b36b79d5257a56415f2d2d9593766"
+
 unbox-primitive@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
