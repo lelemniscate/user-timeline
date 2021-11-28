@@ -15,6 +15,8 @@ const StyledAvatar = styled.div`
   justify-content: center;
   font-size: 1.5em;
 
+  margin-top: 16px;
+
   overflow: hidden;
 `;
 

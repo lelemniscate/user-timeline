@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Popup from 'reactjs-popup';
 import { color1 } from '../styles/constants';
 import AddPerson from './AddPerson';
 import { useState } from 'react';
@@ -11,6 +10,10 @@ const StyledHeader = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  h1 {
+    color: white;
+  }
 `;
 
 const StyledButton = styled.button`

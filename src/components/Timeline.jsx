@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DateTime } from 'luxon';
 
-import { avatarSize, color4, hourNumberHeight, hourSize } from '../styles/constants';
+import { avatarSize, color2, hourNumberHeight, hourSize } from '../styles/constants';
 import Avatar from './Avatar';
 import { useSelector } from 'react-redux';
 import { selectPeople } from '../features/people/peopleSlice';
@@ -17,7 +17,7 @@ const HourLine = styled.div`
 `;
 
 const HoursBarContainer = styled(HourLine)`
-  border-bottom: 1px solid ${color4};
+  border-bottom: 1px solid ${color2};
   padding: 0px 0px 8px 0px;
   background-color: white;
 `;
@@ -60,18 +60,19 @@ const TimelineContainer = styled.div`
   .line-background {
     grid-area: solo;
     width: ${25 * hourSize}px;
+    height: ${({ size }) => `${size * (avatarSize + 24)}px;`}
 
     display: grid;
     grid-template-columns: ${hourSize / 2}px repeat(2, auto) ${hourSize / 2}px;
 
     .zone-left {
-      border-left: 2px dashed ${color4};
-      border-right: 1px dashed ${color4};
+      border-left: 2px dashed ${color2};
+      border-right: 1px dashed ${color2};
     }
 
     .zone-right {
-      border-left: 1px dashed ${color4};
-      border-right: 2px dashed ${color4};
+      border-left: 1px dashed ${color2};
+      border-right: 2px dashed ${color2};
     }
   }
 
@@ -89,7 +90,7 @@ const TimeTable = styled.div`
 const Timeline = () => {
   const people = useSelector(selectPeople);
   return (
-    <TimelineContainer>
+    <TimelineContainer size={people.length}>
       <LineBackground />
       <TimeTable className="time-table" size={people.length}>
         <HoursBar />
