@@ -6,3 +6,7 @@ export const color5 = '#ADF7B6';
 
 export const textColor = "#000000";
 
+export const avatarSize = 64;
+export const hourSize = 24;
+export const hourNumberHeight = 32;
+

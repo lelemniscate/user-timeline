@@ -11,7 +11,7 @@ function App() {
       <CurrentTime />
       <Timeline people={[
         new People({ name: 'Anakin Skywalker', timezone: 'America/New_York' }),
-        new People({ name: 'Padme Amidala', timezone: 'Asia/Tokyo' }),
+        new People({ name: 'Padme Amidala', timezone: 'Asia/Tokyo', avatar: 'https://static.wikia.nocookie.net/frstarwars/images/3/3f/Padm%C3%A9_Amidala.jpg' }),
       ]} />
     </div>
   );

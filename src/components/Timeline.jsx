@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { DateTime } from 'luxon';
 
-import { color4 } from '../styles/constants';
+import { avatarSize, color4, hourNumberHeight, hourSize } from '../styles/constants';
+import Avatar from './Avatar';
 
 const hours = Array.from(Array(25).keys());
 const showHours = [0, 12, 24];
-const hourSize = 24;
-const lineHeight = 32;
+const lineHeight = avatarSize;
 
 const HourLine = styled.div`
   display: grid;
@@ -28,10 +28,6 @@ const HoursBar = () => (
 
 const Blank = () => (<div />); 
 
-const Person = ({ model }) => (
-  <div>{model.initials}</div>
-)
-
 const LineBackground = () => (
   <div className="line-background">
     <div />
@@ -48,7 +44,7 @@ const Line = ({ model }) => {
     <HourLine>
       {hours.map(hour => (
         (date.hour === hour)
-          ? (<Person model={model} />)
+          ? (<Avatar model={model} />)
           : (<Blank />)
       ))}
     </HourLine>
@@ -85,7 +81,7 @@ const TimelineContainer = styled.div`
 const TimeTable = styled.div`
   width: 80%;
   display: grid;
-  grid-template-rows: ${({ size }) => `repeat(${size + 1}, ${lineHeight}px)`};
+  grid-template-rows: ${({ size }) => `${hourNumberHeight}px repeat(${size}, ${lineHeight}px)`};
 `;
 
 const Timeline = ({ people }) => (
