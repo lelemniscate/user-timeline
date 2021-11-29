@@ -24,7 +24,7 @@ const HoursBarContainer = styled(HourLine)`
 
 const HoursBar = () => (
   <HoursBarContainer>
-    {hours.map(hour => (<div>{showHours.includes(hour) ? hour : ''}</div>))}
+    {hours.map(hour => (<div key={hour}>{showHours.includes(hour) ? hour : ''}</div>))}
   </HoursBarContainer>
 );
 
@@ -46,8 +46,8 @@ const Line = ({ model }) => {
     <HourLine>
       {hours.map(hour => (
         (date.hour === hour)
-          ? (<Avatar model={model} />)
-          : (<Blank />)
+          ? (<Avatar key={hour} model={model} />)
+          : (<Blank key={hour} />)
       ))}
     </HourLine>
   );
@@ -94,7 +94,7 @@ const Timeline = () => {
       <LineBackground />
       <TimeTable className="time-table" size={people.length}>
         <HoursBar />
-        {people.map((person) => (<Line model={person} />))}
+        {people.map((person) => (<Line model={person} key={person.name.replace(' ', '-')} />))}
       </TimeTable>
     </TimelineContainer>
   );

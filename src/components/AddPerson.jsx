@@ -62,7 +62,6 @@ const AddPerson = ({ close }) => {
       name.length > 0
       && zonesNames.includes(timezone)
     ) {
-      console.log('dispatch');
       dispatch(addPerson(name, url.length > 0 ? url : undefined, timezone))
     }
     close();

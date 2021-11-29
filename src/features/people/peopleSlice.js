@@ -36,8 +36,7 @@ export const peopleSlice = createSlice({
       .addCase(applicationLaunched.pending, (state) => {
         state.status = fetching;
       })
-      .addCase('application/launch/fulfilled', (state, action) => {
-        console.log('...');
+      .addCase(applicationLaunched.fulfilled, (state, action) => {
         state.status = idle;
         state.people = action.payload;
       })
