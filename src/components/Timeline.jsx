@@ -82,7 +82,7 @@ const TimelineContainer = styled.div`
 `;
 
 const TimeTable = styled.div`
-  width: 80%;
+  width: fit-content;
   display: grid;
   grid-template-rows: ${({ size }) => `${hourNumberHeight}px repeat(${size}, ${lineHeight}px)`};
 `;
